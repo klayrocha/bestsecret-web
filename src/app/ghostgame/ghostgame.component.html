@@ -1,10 +1,7 @@
-<div class="container">
-    <div>
-        <h1>Ghost Game </h1> 
-        <p>Developed by Francis Klay Rocha</p> 
-    </div>
+<div class="container" style="width: 300px;">
+    <img alt="Ghost game title" src="../../assets/title.png">
 </div>
-<div class="container" style="background-color: white">
+<div class="container" style="width: 300px;">
 <form class="form-horizontal" #form="ngForm" novalidate>
     <input type="text" 
         [(ngModel)]="word.letter"
@@ -23,11 +20,13 @@
         {{ word.lettersInserted }}
         <br/>
         <div *ngIf="word.playerWin">
-            <span><img src="../../assets/win.png" width="50px" height="50px"></span>
+            <p>You win</p> 
+            <span><img src="../../assets/win.png" width="256px" height="256px"></span>
         </div>
         <br/>
         <div *ngIf="word.computerWin">
-            <span><img src="../../assets/win.png" width="50px" height="50px"></span>
+            <p>You lost</p> 
+            <span><img src="../../assets/lost.png" width="256px" height="256px"></span>
         </div>
 </form>
 </div>
