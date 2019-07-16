@@ -1,3 +1,10 @@
+<div class="container">
+    <div>
+        <h1>Ghost Game </h1> 
+        <p>Developed by Francis Klay Rocha</p> 
+    </div>
+</div>
+<div class="container" style="background-color: white">
 <form class="form-horizontal" #form="ngForm" novalidate>
     <input type="text" 
         [(ngModel)]="word.letter"
@@ -10,16 +17,17 @@
         [disabled]="word.playerWin || word.computerWin"
         required>
         <br/>
-        <button type="button" [disabled]="!form.valid" (click)="findWord()">Insert Letter</button>
-        <button type="button" (click)="restartGame()">Restart Game</button>
+        <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="findWord()">Insert Letter</button>
+        <button type="button" class="btn btn-primary" (click)="restartGame()">Restart Game</button>
         <br/>
         {{ word.lettersInserted }}
         <br/>
         <div *ngIf="word.playerWin">
-            You Win
+            <span><img src="../../assets/win.png" width="50px" height="50px"></span>
         </div>
         <br/>
         <div *ngIf="word.computerWin">
-            You Lost
+            <span><img src="../../assets/win.png" width="50px" height="50px"></span>
         </div>
 </form>
+</div>
