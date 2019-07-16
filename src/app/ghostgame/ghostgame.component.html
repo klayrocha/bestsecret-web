@@ -1,0 +1,25 @@
+<form class="form-horizontal" #form="ngForm" novalidate>
+    <input type="text" 
+        [(ngModel)]="word.letter"
+        name="letter"
+        id="inputletter" 
+        #letter="ngModel"
+        placeholder="Letter"
+        style="width: 50px;"
+        maxlength="1"
+        [disabled]="word.playerWin || word.computerWin"
+        required>
+        <br/>
+        <button type="button" [disabled]="!form.valid" (click)="findWord()">Insert Letter</button>
+        <button type="button" (click)="restartGame()">Restart Game</button>
+        <br/>
+        {{ word.lettersInserted }}
+        <br/>
+        <div *ngIf="word.playerWin">
+            You Win
+        </div>
+        <br/>
+        <div *ngIf="word.computerWin">
+            You Lost
+        </div>
+</form>

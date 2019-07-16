@@ -1,0 +1,1 @@
+export const GHOST_GAME_API: string = 'http://localhost:8080';
