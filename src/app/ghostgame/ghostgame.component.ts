@@ -11,6 +11,8 @@ import { ResponseApi } from './../model/response-api';
 export class GhostgameComponent {
 
   word = new Word('','',false,false);
+  message : {};
+  classCss : {};
 
   constructor(
     private ghostgameService: GhostgameService
@@ -19,14 +21,31 @@ export class GhostgameComponent {
   findWord(){
     this.ghostgameService.findWord(this.word.letter,this.word.lettersInserted).subscribe((responseApi:ResponseApi) => {
         this.word = responseApi.data;
-        console.log('RETORNO --> ',this.word);
     } , err => {
-      console.log(err);
+      this.showMessage({
+        type: 'error',
+        text: err['error']['message']
+      });
     });
-  }
+  } 
 
   restartGame(){
     this.word = new Word('','',false,false);
+  }
+
+  private showMessage(message: {type: string, text: string}): void {
+    this.message = message;
+    this.buildClasses(message.type);
+    setTimeout(() => {
+      this.message = undefined;
+    }, 3000);
+  }
+
+  private buildClasses(type: string): void {
+    this.classCss = {
+      'alert': true
+    }
+    this.classCss['alert-'+type] =  true;
   }
 
 }

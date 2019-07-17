@@ -2,6 +2,9 @@
     <img alt="Ghost game title" src="../../assets/title.png">
 </div>
 <div class="container" style="width: 300px;">
+    <div style="width: 400px;" [ngClass]="classCss" role="alert" *ngIf="message">
+        <strong style="color: white;font-size: 20px">{{ message.text }}</strong>
+    </div>
     <form class="form-horizontal" #form="ngForm" novalidate>
             <div class="col-sm-10" style="margin-top: 30px;margin-left: 24px;">
                 <input type="text" 
